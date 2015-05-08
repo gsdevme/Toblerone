@@ -1,5 +1,7 @@
 Toblerone
 ===
+A TDD Framework wrapping existing and well documented PHPUnit methods.
+
 Features
 ----
  * Multi language support
@@ -10,11 +12,6 @@ Features
  * Keep existing knowledge of assertion libraries methods (PHPUnit)
  * Extension support
  * Coverage support?
-
-Why?
-----
-I want to play with the idea of TDD but I would much prefer a test and code driven solution where as PHPSpec wants
-to mask itself as a non-code non-test solution.
 
 What does it look like?
 ----
