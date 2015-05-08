@@ -28,7 +28,7 @@ class Calculator implements Toblerone\Test
     use Toblerone\Extension\PHPUnit\Assert;
 
     /** @var Acme\Calculator */
-    private $calculator;
+    protected $calculator;
 
     /**
      * @it should be an instance of Acme\Calculator
