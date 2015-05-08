@@ -1,6 +1,6 @@
 <?php
 
-namespace Toblerone;
+namespace Toblerone\Test;
 
 interface TestInterface
 {

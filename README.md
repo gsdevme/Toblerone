@@ -4,14 +4,15 @@ A TDD Framework wrapping existing and well documented PHPUnit methods.
 
 Features
 ----
- * Multi language support
- * PSR valid tests
+ * Process isolation
  * IDE Friendly as it doesn't cheat $this
- * No Magic
- * No base test that is required to be extended
  * Keep existing knowledge of assertion libraries methods (PHPUnit)
  * Extension support
  * Coverage support?
+ * Multi language support
+ * PSR valid tests
+ * No Magic
+ * No base test that is required to be extended
 
 What does it look like?
 ----
@@ -19,7 +20,7 @@ What does it look like?
 ```
 <?php
 
-namespace TobleroneTest\Acme;
+namespace tests\Toblerone\Acme;
 
 class Calculator implements Toblerone\Test
 {
