@@ -7,6 +7,7 @@ Features
  * IDE Friendly as it doesn't cheat $this
  * No Magic
  * No base test that is required to be extended
+ * Keep existing knowledge of assertion libraries methods (PHPUnit)
  * Extension support
  * Coverage support?
 
@@ -35,7 +36,7 @@ class Calculator implements Toblerone\Test
      */
     public function itShouldBeAnInstanceOf()
     {
-        $this->instanceOf('Acme\Calculator');
+        $this->assertInstanceOf('Acme\Calculator');
     }
 }
 ```
