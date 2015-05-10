@@ -42,6 +42,8 @@ class Application extends SymfonyApplication
         $this->addServiceCommands();
         $this->addServiceEvents();
 
+        $this->dispatcher->dispatch($this->container->getParameter('toblerone.event.bootstrap.before_run'), new GenericEvent());
+
         return parent::doRun($input, $output);
     }
 
@@ -49,7 +51,7 @@ class Application extends SymfonyApplication
     {
         $eventSubscribers = $this->container->findTaggedServiceIds('toblerone.event.subscriber');
 
-        foreach($eventSubscribers as $id => $v){
+        foreach ($eventSubscribers as $id => $v) {
             $subscriber = $this->container->get($id);
             $this->dispatcher->addSubscriberService($id, get_class($subscriber));
         }
@@ -71,5 +73,6 @@ class Application extends SymfonyApplication
         $this->containerLoader = new XmlFileLoader($this->container, new FileLocator(__DIR__ . '/../Resources/config/'));
         $this->containerLoader->load('command-services.xml');
         $this->containerLoader->load('services.xml');
+        $this->containerLoader->load('events.xml');
     }
 }

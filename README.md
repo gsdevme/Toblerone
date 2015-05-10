@@ -7,8 +7,8 @@ Features
  * Process isolation
  * IDE Friendly as it doesn't cheat $this
  * Keep existing knowledge of assertion libraries methods (PHPUnit)
- * Extension support
- * Coverage support?
+ * Extension support?
+ * Coverage support
  * Multi language support
  * PSR valid tests
  * No Magic

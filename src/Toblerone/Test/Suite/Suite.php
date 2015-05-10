@@ -7,6 +7,16 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class Suite implements EventSubscriberInterface
 {
 
+    private static $bootstrapBeforeRunEventName;
+
+    /**
+     * @param $beforeRunEvent
+     */
+    public function __construct($beforeRunEvent)
+    {
+        self::$bootstrapBeforeRunEventName = $beforeRunEvent;
+    }
+
     /**
      * Returns an array of event names this subscriber wants to listen to.
      *
@@ -30,7 +40,7 @@ class Suite implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'example' => ['test']
+            self::$bootstrapBeforeRunEventName => ['test']
         ];
     }
 
