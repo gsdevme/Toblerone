@@ -40,11 +40,19 @@ class Application extends SymfonyApplication
     {
         $this->loadServices();
         $this->addServiceCommands();
-
-        $event = new GenericEvent('test');
-        $this->dispatcher->dispatch('example', $event);
+        $this->addServiceEvents();
 
         return parent::doRun($input, $output);
+    }
+
+    private function addServiceEvents()
+    {
+        $eventSubscribers = $this->container->findTaggedServiceIds('toblerone.event.subscriber');
+
+        foreach($eventSubscribers as $id => $v){
+            $subscriber = $this->container->get($id);
+            $this->dispatcher->addSubscriberService($id, get_class($subscriber));
+        }
     }
 
     private function addServiceCommands()

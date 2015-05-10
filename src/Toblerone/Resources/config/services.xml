@@ -4,6 +4,8 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="toblerone.test.suite" class="Toblerone\Test\Suite\Suite"/>
+        <service id="toblerone.test.suite" class="Toblerone\Test\Suite\Suite">
+            <tag name="toblerone.event.subscriber"/>
+        </service>
     </services>
 </container>
