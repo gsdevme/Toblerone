@@ -18,23 +18,25 @@ What does it look like?
 ----
 
 ```
-<?php
+use Toblerone\Assertion\PHPUnit\Assert;
+use Toblerone\Test\ConstructInterface;
+use Toblerone\Test\InstanceInterface;
+use Toblerone\Test\TestInterface;
 
-namespace tests\Toblerone\Acme;
-
-class Calculator implements Toblerone\Test
+class Calculator implements TestInterface, InstanceInterface, ConstructInterface
 {
-    use Toblerone\Extension\PHPUnit\Assert;
+    use Assert;
+
+    const CLASS_NAME = 'Acme\Calculator';
 
     /** @var Acme\Calculator */
-    protected $calculator;
+    public $instance;
 
     /**
      * @it should be an instance of Acme\Calculator
      */
     public function itShouldBeAnInstanceOf()
     {
-        $this->assertInstanceOf('Acme\Calculator');
+        $this->assertInstanceOf(self::CLASS_NAME, $this->instance);
     }
-}
 ```
